@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="text-lead h5">
+                        Login
+                    </div>
+                </div>
+
+<div class="card-body">
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+     <div class="form-group row">
+                       <%= f.label :email, :class => 'col-md-3 col-form-label text-md-right' %>
+                      <div class="col-md-9">
+                     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                      </div>
+                    </div>
+
+  <div class="form-group row">
+                      <%= f.label :password , :class => 'col-md-3 col-form-label text-md-right' %>
+                      <div class="col-md-9">
+                        <%= f.password_field :password, autocomplete: "off" %>
+                    </div>
+</div>
+
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+  <div class="form-group row mb-4">
+                      <div class="col-md-8 offset-md-4">
+                     <%= f.submit "Log in" , :class =>  "btn btn-primary "%>
+<% end %>
+                      </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= render "devise/shared/links" %>

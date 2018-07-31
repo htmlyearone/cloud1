@@ -1,0 +1,9 @@
+<div class="text-lead h3 text-center mb-4">Edit Patient Record for <%= @patient.firstname %> <%= @patient.lastname %></div>
+
+<%= render 'form', patient: @patient %>
+
+<%= link_to 'Show', @patient %> |
+<%= link_to 'Back', patients_path %>
+
+
+

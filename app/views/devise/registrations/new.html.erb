@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="text-lead h5">
+                        Sign Up
+                    </div>
+                </div>
+                <div class="card-body">
+                  
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+
+ <div class="form-group row">
+                    <%= f.label :firstname, :class => 'col-md-3 col-form-label text-md-right'  %>
+                    <div class="col-md-9">
+                      <%= f.text_field :firstname, autofocus: true %>
+                    </div>
+                  </div>
+
+
+  
+   <div class="form-group row">
+                    <%= f.label :lastname, :class => 'col-md-3 col-form-label text-md-right'  %>
+                    <div class="col-md-9">
+                  <%= f.text_field :lastname, autofocus: true %>
+                    </div>
+                  </div>
+ 
+    
+   <div class="form-group row">
+                   <%= f.label :email, :class => 'col-md-3 col-form-label text-md-right'  %>
+                    <div class="col-md-9">
+               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </div>
+                  </div>
+
+
+
+  <div class="form-group row">
+    <%= f.label :password, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+  
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+</div>
+
+<div class="form-group row">
+                     <%= f.label :password_confirmation, :class => 'col-md-3 col-form-label text-md-right'  %>
+                    <div class="col-md-9">
+               <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                    </div>
+                  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Sign up", :class =>  "btn btn-primary "%>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+
+ </div><!-- ./ CARD BODY-->
+        </div> <!-- ./ CARD -->
+    </div> <!-- ./ COL-8 -->
+  </div> <!-- ./ ROW -->
+</div> <!-- ./ Container-->

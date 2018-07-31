@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-default">
+                <div class="card-header">
+  <div class="text-lead h3 text-center mb-4">Showing Patient Record for <%= @patient.firstname %> <%= @patient.lastname %></div>
+                </div>
+                <div class="card-body">
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @patient.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @patient.lastname %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @patient.dob %>
+</p>
+
+<p>
+  <strong>Phoneno:</strong>
+  <%= @patient.phoneno %>
+</p>
+
+<p>
+  <strong>Infection:</strong>
+  <%= @patient.infection %>
+</p>
+
+<p>
+  <strong>Injury:</strong>
+  <%= @patient.injury %>
+</p>
+
+<p>
+  <strong>prescribe:</strong>
+  <%= @patient.prescribe %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @patient.note %>
+</p>
+ <div class="row">
+	                     <span class="text-muted">Check what to do with a patient</span>
+                    <%= form_tag "/checkpat" do %>
+                        <%= text_field_tag :search_string, nil, :placeholder => "1 - minor, 5 - major" %>
+                        <%= submit_tag "Add observation",  class: "btn btn-primary "%>
+                    <% end %>
+                </div>
+            </div>
+
+
+    </div>
+        </div>
+    </div>
+</div>
+
+ <div class="text-lead h3 text-center mb-4">
+<%= link_to 'Edit', edit_patient_path(@patient), class: "btn btn-primary "%> |
+<%= link_to 'Back', patients_path, class: "btn btn-primary " %> |
+<%= link_to 'Print a prescription', patient_path(@patient, format:"pdf"), class: "btn btn-primary " %> |
+<%= link_to "Refer to hospital", asset_path("referral.doc", skip_pipeline: true,  disposition: "attachment"), class: "btn btn-primary " %> 
+
+</div>

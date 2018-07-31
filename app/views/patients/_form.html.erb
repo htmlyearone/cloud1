@@ -1,0 +1,120 @@
+  
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    <div class="text-lead h5">
+                  
+                    </div>
+                </div>
+                <div class="card-body">
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="errors”>
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <!--Name Row-->
+ <div class="form-group row">
+   <%= form.label :firstname, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_field :firstname, id: :patient_firstname %>
+  </div>
+</div>
+
+<div class="form-group row">
+   <%= form.label :lastname, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_field :lastname, id: :patient_lastname  %>
+  </div>
+</div>
+
+ <div class="form-group row">
+   <%= form.label :address, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_field :address, id: :patient_address  %>
+  </div>
+</div>
+
+<div class="form-group row">
+   <%= form.label :Age, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_field :age, id: :patient_dob  %>
+  </div>
+</div>
+
+<div class="form-group row">
+   <%= form.label :phoneno, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.number_field :phoeno, id: :patient_phoneno  %>
+  </div>
+</div>
+
+<div class="form-group row">
+   <%= form.label :Infection, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_field :infection, id: :patient_infection  %>
+  </div>
+</div>
+
+<div class="form-group row">
+   <%= form.label :injury, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_field :injury, id: :patient_injury  %>
+  </div>
+</div>
+
+
+                        <div class="form-group row">
+                            <%= form.label :severity, :class => 'col-md-3 col-form-label text-md-right' %>
+                            <div class="col-md-9">
+                                <%= form.select :severe, 
+                                    [
+                                        ["1"], 
+                                        ["2"],
+                                        ["3"],
+                                        ["4"],
+                                        ["5"],
+                                    ],
+                                    {},
+                                    {class: "form-control"} 
+                                %>
+                            </div>
+                        </div>
+
+
+<div class="form-group row">
+   <%= form.label :prescribe, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_area :prescribe, id: :patient_prescribe  %>
+  </div>
+</div>
+<div class="form-group row">
+   <%= form.label :Notes, :class => 'col-md-3 col-form-label text-md-right' %>
+ <div class="col-md-9">
+   <%= form.text_area :note, id: :note  %>
+  </div>
+</div>
+
+
+  <!-- Button Row-->
+                        <div class="form-group row mb-4">
+                            <div class="col-md-6 offset-md-4 mt-2">
+                              <%= form.submit "Update" , :class =>  "btn btn-primary "%>
+                            </div>
+                        </div>
+                    <% end %>
+                </div><!-- ./ CARD BODY-->
+            </div> <!-- ./ CARD -->
+        </div> <!-- ./ COL-8 -->
+    </div> <!-- ./ ROW -->
+</div> <!-- ./ Container-->
+

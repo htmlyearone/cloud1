@@ -1,0 +1,65 @@
+
+<h1>Dr <%= @user.firstname+' '+@user.lastname %></h1>
+<h3> Your Information</h3>
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Client's</th>
+    </thead>
+    <tbody>
+        <td><%= current_user.id %></td>
+        <td><%= current_user.name %></td>
+        <td><%= current_user.email %></td>
+        <td><%= current_user.patients.count %></td>
+    </tbody>
+</table>
+<div class="row">
+        <div class="col-md-12">
+ <%= link_to "Edit Information", edit_user_registration_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+    <br />
+    <br />
+<h3> Your Patients </h3>
+         <table class="table patient-list sortable" id="patientTable">
+                <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Address</th>
+      <th>Dob</th>
+      <th>Phoneno</th>
+      <th>Infection</th>
+      <th>Injury</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      
+       <% @user_patients.each do |patient|  %>
+      <tr>
+        <td><%= link_to patient.firstname, patient_path(patient) %></td>
+        <td><%= patient.lastname %></td>
+        <td><%= patient.address %></td>
+        <td><%= patient.dob %></td>
+        <td><%= patient.phoneno %></td>
+        <td><%= patient.infection %></td>
+        <td><%= patient.injury %></td>
+        
+        
+         </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="row">
+        <div class="col-md-12">
+ <%= link_to "New Patient", new_patient_path, class: "btn btn-primary " %>
+        </div>
+    </div>
+        
+         
+         
+        
