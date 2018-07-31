@@ -14,4 +14,3 @@ class Illness
     return ans
     end
 end # End Module
-end
