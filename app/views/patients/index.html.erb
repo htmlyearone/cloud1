@@ -1,9 +1,18 @@
 
+<div class="jumbotron" style = "background-color: powderblue;">
+ <div class="text-lead text-center">
+        <span class="h2 doctor-name mb-4">Welcome Dr <%= current_user.name %></span>
+        <h3> All patients below</h3>
+        <h4> To view your patients, go to your profile</h4>
+        </div>
+</div>
+
+
 <p id="notice"><%= notice %></p>
 
 <div class="container-fluid">
     <div class="text-lead text-center">
-        <span class="h2 doctor-name mb-4">Welcome Dr <%= current_user.name %></span>
+       
 
 <%= form_tag(patients_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Patients By Lastname" %>
@@ -23,7 +32,7 @@
         <% if @user_patients  ==0 %>
 		    <center><h3>There are no patients</h3></center>
 		<% else %>
-            <table class="table patient-list sortable" id="patientTable">
+            <table class="table table-striped" id="patientTable">
                 <thead>
     <tr>
       <th>Firstname</th>

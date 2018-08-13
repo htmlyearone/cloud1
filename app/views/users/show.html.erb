@@ -1,5 +1,13 @@
 
-<h1>Dr <%= @user.firstname+' '+@user.lastname %></h1>
+<div class="jumbotron" style = "background-color: powderblue;">
+ <div class="text-lead text-center">
+        <span class="h2 doctor-name mb-4">Welcome Dr <%= current_user.name %></span>
+        <h3> All your patients below</h3>
+        <h4> Change personal or patient information via this page </h4>
+        <h4> click home to revert back to all patients </h4>
+        </div>
+</div>
+
 <h3> Your Information</h3>
 <table class="table">
     <thead>
